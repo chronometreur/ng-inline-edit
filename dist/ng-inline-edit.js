@@ -1,5 +1,5 @@
 /**
- * ng-inline-edit v0.7.2 (http://tamerayd.in/ng-inline-edit)
+ * ng-inline-edit v0.7.0 (http://tamerayd.in/ng-inline-edit)
  * Copyright 2015 Tamer Aydin (http://tamerayd.in)
  * Licensed under MIT
  */
@@ -247,7 +247,7 @@
                                         'validate-current-value="' + attrs.validateValue + '"' +
                                         'placeholder="{{placeholder}}" />');
 
-                                } else if (attrs.inputValueType = 'curp') {
+                                } else if (attrs.inputValueType === "curp") {
 
                                     input = angular.element(
                                         (scope.isInputTextarea ?
@@ -259,6 +259,33 @@
                                         'ng-keyup="onInputKeyup($event);" ' +
                                         'ng-model="inputValue" ' +
                                         'no-special-characters ' +
+                                        'validate-current-value="' + attrs.validateValue + '"' +
+                                        'placeholder="{{placeholder}}" />');
+                                } else if (attrs.inputValueType === "birthday") {
+
+                                    input = angular.element(
+                                        (scope.isInputTextarea ?
+                                            '<textarea ' : '<input type="text" ') +
+                                        'class="ng-inline-edit__input" ' +
+                                        'id = "birthday"' +
+                                        'ng-disabled="validating" ' +
+                                        'ng-show="editMode" ' +
+                                        'ng-keyup="onInputKeyup($event);" ' +
+                                        'ng-model="inputValue" ' +
+                                        /*'no-special-characters ' +*/
+                                        'validate-current-value="' + attrs.validateValue + '"' +
+                                        'placeholder="{{placeholder}}" />');
+                                } else if (attrs.inputValueType === "since") {
+                                    input = angular.element(
+                                        (scope.isInputTextarea ?
+                                            '<textarea ' : '<input type="text" ') +
+                                        'class="ng-inline-edit__input" ' +
+                                        'id = "since"' +
+                                        'ng-disabled="validating" ' +
+                                        'ng-show="editMode" ' +
+                                        'ng-keyup="onInputKeyup($event);" ' +
+                                        'ng-model="inputValue" ' +
+                                        /*'no-special-characters ' +*/
                                         'validate-current-value="' + attrs.validateValue + '"' +
                                         'placeholder="{{placeholder}}" />');
                                 }
